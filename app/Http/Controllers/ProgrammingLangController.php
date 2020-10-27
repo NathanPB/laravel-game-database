@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProgrammingLangController extends Controller
 {
     public function index() {
-        return view('ProgrammingLang/index', ['langs' => GameGenre::all()]);
+        return view('ProgrammingLang/index', ['langs' => ProgrammingLang::all()]);
     }
 
     public function create() {

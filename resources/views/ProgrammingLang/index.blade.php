@@ -18,9 +18,9 @@
         <tbody>
             @foreach($langs as $lang)
                 <tr>
-                    <td>{{$genre->id}}</td>
-                    <td>{{$genre->name}}</td>
-                    <td>{{$genre->description}}</td>
+                    <td>{{$lang->id}}</td>
+                    <td>{{$lang->name}}</td>
+                    <td>{{$lang->description}}</td>
                 </tr>
             @endforeach
         </tbody>
