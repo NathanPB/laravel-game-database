@@ -231,7 +231,7 @@ return [
     */
 
     'menu' => [
-        ['header' => 'Primary CRUDS'],
+        ['header' => 'Primary CRUDs'],
         [
             'text' => 'Project States',
             'url' => 'state',
@@ -246,6 +246,12 @@ return [
             'text' => 'Game Genre',
             'url' => 'genre',
             'icon' => 'fa fa-gamepad'
+        ],
+        ['header' => 'Foreign Key CRUDs'],
+        [
+            'text' => 'Organizations',
+            'url' => 'organization',
+            'icon' => 'fa fa-building'
         ],
         ['header' => 'account_settings'],
         [

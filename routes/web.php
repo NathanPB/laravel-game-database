@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GameGenreController;
+use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ProgrammingLangController;
 use App\Http\Controllers\ProjectStateController;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,7 @@ Route::post('/state/store', [ProjectStateController::class, 'store']);
 Route::get('/lang', [ProgrammingLangController::class, 'index']);
 Route::get('/lang/create', [ProgrammingLangController::class, 'create']);
 Route::post('/lang/store', [ProgrammingLangController::class, 'store']);
+
+Route::get('/organization', [OrganizationsController::class, 'index']);
+Route::get('/organization/create', [OrganizationsController::class, 'create']);
+Route::post('/organization/store', [OrganizationsController::class, 'store']);
