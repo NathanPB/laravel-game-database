@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>New Programming Language</h1>
-    {!! Form::open(['action' => 'App\Http\Controllers\ProgrammingLang@store']) !!}
+    {!! Form::open(['action' => 'App\Http\Controllers\ProgrammingLangController@store']) !!}
 
     <div class="form-group">
         {!! Form::label('name', 'Name:') !!}
