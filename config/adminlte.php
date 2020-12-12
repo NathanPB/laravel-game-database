@@ -253,6 +253,12 @@ return [
             'url' => 'organization',
             'icon' => 'fa fa-building'
         ],
+        ['header' => 'Master/Detail CRUDs'],
+        [
+            'text' => 'Game Engines',
+            'url' => 'engine',
+            'icon' => 'fa fa-cog'
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

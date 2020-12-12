@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnginesController;
 use App\Http\Controllers\GameGenreController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ProgrammingLangController;
@@ -36,3 +37,9 @@ Route::post('/lang/store', [ProgrammingLangController::class, 'store']);
 Route::get('/organization', [OrganizationsController::class, 'index']);
 Route::get('/organization/create', [OrganizationsController::class, 'create']);
 Route::post('/organization/store', [OrganizationsController::class, 'store']);
+
+Route::group(['prefix' => 'engine', 'where' => ['id' => '[0-9]+']], function () {
+   Route::get('', [EnginesController::class, 'index'])->name('engines');
+   Route::get('create', [EnginesController::class, 'create'])->name('engines.create');
+   Route::post('store', [EnginesController::class, 'store'])->name('engines.store');
+});
