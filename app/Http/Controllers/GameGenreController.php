@@ -19,4 +19,9 @@ class GameGenreController extends Controller
         GameGenre::create($request->all());
         return redirect('genre');
     }
+
+    public function destroy(Request $request) {
+        GameGenre::find($request->get('id'))->delete();
+        return redirect('genre');
+    }
 }

@@ -17,7 +17,7 @@ class CreateGameToLangsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('game_id');
             $table->unsignedBigInteger('programming_lang_id');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->foreign('programming_lang_id')->references('id')->on('programming_langs');
             $table->timestamps();
         });

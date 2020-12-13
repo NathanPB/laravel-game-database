@@ -33,4 +33,9 @@ class EnginesController extends Controller
 
         return redirect()->route('engines');
     }
+
+    public function destroy(Request $request) {
+        GameEngine::find($request->get('id'))->delete();
+        return redirect()->route('engine');
+    }
 }

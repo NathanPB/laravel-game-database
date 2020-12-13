@@ -20,4 +20,9 @@ class ProgrammingLangController extends Controller
         ProgrammingLang::create($request->all());
         return redirect('lang');
     }
+
+    public function destroy(Request $request) {
+        ProgrammingLang::find($request->get('id'))->delete();
+        return redirect('lang');
+    }
 }

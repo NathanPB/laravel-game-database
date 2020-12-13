@@ -19,4 +19,11 @@ class OrganizationsController extends Controller
         Organization::create($request->all());
         return redirect('organization');
     }
+
+
+
+    public function destroy(Request $request) {
+        Organization::find($request->get('id'))->delete();
+        return redirect('organization');
+    }
 }

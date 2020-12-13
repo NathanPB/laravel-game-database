@@ -29,6 +29,12 @@
                             </a>
                         @endif
                     </td>
+                    <td>
+                        {!! Form::open(['action' => 'App\Http\Controllers\OrganizationsController@destroy']) !!}
+                        <input name="id" value="{{$org->id}}" hidden/>
+                        {!! Form::submit('X', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
             @endforeach
         </tbody>

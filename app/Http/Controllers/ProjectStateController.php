@@ -19,4 +19,9 @@ class ProjectStateController extends Controller
         ProjectState::create($request->all());
         return redirect('state');
     }
+
+    public function destroy(Request $request) {
+        ProjectState::find($request->get('id'))->delete();
+        return redirect('state');
+    }
 }

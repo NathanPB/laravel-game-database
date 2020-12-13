@@ -30,7 +30,12 @@
                                 <li>{{$lang->lang->name}}</li>
                             @endforeach
                         </ul>
-
+                    </td>
+                    <td>
+                        {!! Form::open(['action' => 'App\Http\Controllers\EnginesController@destroy']) !!}
+                        <input name="id" value="{{$engine->id}}" hidden/>
+                        {!! Form::submit('X', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach

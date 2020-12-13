@@ -19,6 +19,7 @@
                 <th>Engine</th>
                 <th>Languages</th>
                 <th>Organizations</th>
+                <th>Control</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,12 @@
                                 <li>{{$org->organization->name}}</li>
                             @endforeach
                         </ul>
+                    </td>
+                    <td>
+                        {!! Form::open(['action' => 'App\Http\Controllers\GamesController@destroy']) !!}
+                        <input name="id" value="{{$game->id}}" hidden/>
+                        {!! Form::submit('X', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach
