@@ -259,6 +259,11 @@ return [
             'url' => 'engine',
             'icon' => 'fa fa-cog'
         ],
+        [
+            'text' => 'Games',
+            'url' => 'game',
+            'icon' => 'fa fa-cog'
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

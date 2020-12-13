@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EnginesController;
 use App\Http\Controllers\GameGenreController;
+use App\Http\Controllers\GamesController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ProgrammingLangController;
 use App\Http\Controllers\ProjectStateController;
@@ -42,4 +43,10 @@ Route::group(['prefix' => 'engine', 'where' => ['id' => '[0-9]+']], function () 
    Route::get('', [EnginesController::class, 'index'])->name('engines');
    Route::get('create', [EnginesController::class, 'create'])->name('engines.create');
    Route::post('store', [EnginesController::class, 'store'])->name('engines.store');
+});
+
+Route::group(['prefix' => 'game', 'where' => ['id' => '[0-9]+']], function () {
+   Route::get('', [GamesController::class, 'index'])->name('games');
+   Route::get('create', [GamesController::class, 'create'])->name('games.create');
+   Route::post('store', [GamesController::class, 'store'])->name('games.store');
 });
