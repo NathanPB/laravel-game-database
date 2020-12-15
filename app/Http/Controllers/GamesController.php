@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class GamesController extends Controller
 {
     public function index() {
-        $games = Game::all();
+        $games = Game::orderBy('name')->paginate(5);
         return view('Game/index', ['games' => $games]);
     }
 

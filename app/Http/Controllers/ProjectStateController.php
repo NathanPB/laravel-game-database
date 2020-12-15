@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProjectStateController extends Controller
 {
     public function index() {
-        return view('ProjectState/index', ['states' => ProjectState::all()]);
+        return view('ProjectState/index', ['states' => ProjectState::orderBy('name')->paginate(5)]);
     }
 
     public function create() {

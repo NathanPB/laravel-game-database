@@ -10,7 +10,7 @@ class EnginesController extends Controller
 {
 
     public function index() {
-        $engines = GameEngine::all();
+        $engines = GameEngine::orderBy('name')->paginate(5);
         return view('GameEngine/index', ['engines' => $engines]);
     }
 

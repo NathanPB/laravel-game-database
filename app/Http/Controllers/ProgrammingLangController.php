@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProgrammingLangController extends Controller
 {
     public function index() {
-        return view('ProgrammingLang/index', ['langs' => ProgrammingLang::all()]);
+        return view('ProgrammingLang/index', ['langs' => ProgrammingLang::orderBy('name')->paginate(5)]);
     }
 
     public function create() {

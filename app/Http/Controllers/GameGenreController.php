@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class GameGenreController extends Controller
 {
     public function index() {
-        return view('GameGenre/index', ['genres' => GameGenre::all()]);
+        return view('GameGenre/index', ['genres' => GameGenre::orderBy('name')->paginate(5)]);
     }
 
     public function create() {
