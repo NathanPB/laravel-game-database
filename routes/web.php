@@ -56,3 +56,7 @@ Route::group(['prefix' => 'game', 'where' => ['id' => '[0-9]+']], function () {
    Route::post('store', [GamesController::class, 'store'])->name('games.store');
    Route::post('destroy', [GamesController::class, 'destroy'])->name('games.destroy');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
