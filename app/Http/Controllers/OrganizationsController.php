@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 
 class OrganizationsController extends Controller
 {
-    public function index() {
-        return view('Organization/index', ['orgs' => Organization::orderBy('name')->paginate(5)]);
+    public function index(Request $request) {
+        $filtro = $request->get('filtro');
+        if ($filtro) {
+            $orgs = Organization::where('name', 'like', "%$filtro%")
+                ->orderBy('name')
+                ->paginate(5);
+        } else {
+            $orgs = Organization::orderBy('name')->paginate(5);
+        }
+        return view('Organization/index', ['orgs' => $orgs]);
     }
 
     public function create() {

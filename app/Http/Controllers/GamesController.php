@@ -9,8 +9,15 @@ use Illuminate\Http\Request;
 
 class GamesController extends Controller
 {
-    public function index() {
-        $games = Game::orderBy('name')->paginate(5);
+    public function index(Request $request) {
+        $filtro = $request->get('filtro');
+        if ($filtro) {
+            $games = Game::where('name', 'like', "%$filtro%")
+                ->orderBy('name')
+                ->paginate(5);
+        } else {
+            $games = Game::orderBy('name')->paginate(5);
+        }
         return view('Game/index', ['games' => $games]);
     }
 

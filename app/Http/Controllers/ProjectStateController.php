@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 
 class ProjectStateController extends Controller
 {
-    public function index() {
-        return view('ProjectState/index', ['states' => ProjectState::orderBy('name')->paginate(5)]);
+    public function index(Request $request) {
+        $filtro = $request->get('filtro');
+        if ($filtro) {
+            $states = ProjectState::where('name', 'like', "%$filtro%")
+                ->orderBy('name')
+                ->paginate(5);
+        } else {
+            $states = ProjectState::orderBy('name')->paginate(5);
+        }
+        return view('ProjectState/index', ['states' => $states]);
     }
 
     public function create() {

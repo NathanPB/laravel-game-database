@@ -9,8 +9,16 @@ use Illuminate\Http\Request;
 class EnginesController extends Controller
 {
 
-    public function index() {
-        $engines = GameEngine::orderBy('name')->paginate(5);
+    public function index(Request $request) {
+        $filtro = $request->get('filtro');
+        if ($filtro) {
+            $engines = GameEngine::where('name', 'like', "%$filtro%")
+                    ->orderBy('name')
+                    ->paginate(5)
+                    ->setPath("atores?filtro=$filtro");
+        } else {
+            $engines = GameEngine::orderBy('name')->paginate(5);
+        }
         return view('GameEngine/index', ['engines' => $engines]);
     }
 

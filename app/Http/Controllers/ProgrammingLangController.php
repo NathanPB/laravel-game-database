@@ -8,8 +8,16 @@ use Illuminate\Http\Request;
 
 class ProgrammingLangController extends Controller
 {
-    public function index() {
-        return view('ProgrammingLang/index', ['langs' => ProgrammingLang::orderBy('name')->paginate(5)]);
+    public function index(Request $request) {
+        $filtro = $request->get('filtro');
+        if ($filtro) {
+            $langs = ProgrammingLang::where('name', 'like', "%$filtro%")
+                ->orderBy('name')
+                ->paginate(5);
+        } else {
+            $langs = ProgrammingLang::orderBy('name')->paginate(5);
+        }
+        return view('ProgrammingLang/index', ['langs' => $langs]);
     }
 
     public function create() {

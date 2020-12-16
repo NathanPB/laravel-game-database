@@ -7,6 +7,23 @@
             <a class="btn btn-primary" href="/genre/create">New</a>
         </div>
     </div>
+    {!! Form::open(['url' => '/genre']) !!}
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input
+                name="filtro"
+                placeholder="Pesquisa..."
+                style="width: 95%"
+            />
+            <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+        </div>
+    </div>
+    <br/>
+    {!! Form::close() !!}
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
